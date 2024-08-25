@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <title>portfolio</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        .brand{
+            font-weight: 700;
+            letter-spacing: 5px;
+        }
+
+       a{
+            text-decoration: none;
+        }
+
+        .nav-items{
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-items li{
+            font-weight: 700;
+            font-size: 1.3rem;
+            list-style-type: none;
+            padding: .3rem;
+            transition: .5s;
+        }
+
+        .nav-items li:hover{
+            background-color: rgba(29, 228, 42, 0.821);
+
+        }
+
+        .sidebar-item{
+            cursor: pointer;
+            list-style-type: none;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 450;
+            border-bottom: 1px solid gray;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            transition: .3s;
+        }
+
+        .sidebar-item:hover{
+            color: rgb(25, 190, 36);
+        }
+
+        .section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 95vh;
+            margin-top: 5rem;
+        }
+
+        .section .home-title{
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            opacity: .85;
+        }
+
+        .section  p{
+            font-size: 1.5rem;
+        }
+
+        .home-box{
+            height:88vh;
+        }
+
+        .home-image{
+            width: 100%;
+        }
+
+        .heading{
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+        }
+
+        .about{
+            height: 95vh;
+            border-radius: 15px;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+        }
+
+        .card{
+            width: 300px;
+            height: 300px;
+        }
+
+        #form-img{
+            width: 80%;
+            border-radius: 15px;
+        }
+        #up-btn{
+            display: none;
+        }
+
+        @media screen and (max-width:800px) {
+            .hide{
+                display: none;
+            }
+
+            .container-fluid .row .home-box{
+                height:45vh;
+            }
+
+            .section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 95vh;
+            margin-top: 2rem;
+        }
+
+        .section .home-title{
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        .section  p{
+            font-size: 1.2rem;
+        }
+
+        .about{
+            height: 45vh;
+            border-radius: 15px;
+        }
+
+        .service-box{
+           border-radius:25px;
+           width: 95%;
+           margin: 1rem auto;
+        }
+
+        #form-img{
+            width: 90%;
+            border-radius: 15px;
+        }
+
+        #up-btn{
+            display: block;
+            bottom: 25px;
+            left: 83%;
+        }
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar shadow">
+        <div class="container-fluid ">
+            <h2 class="brand">RAVIZZ</h2>
+            <ul class="nav-items pt-2 hide">
+                <li class="nav-item rounded-5 px-4"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item rounded-5 px-4"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item rounded-5 px-4"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item rounded-5 px-4"><a class="nav-link" href="#gallery">Gallery</a></li>
+                <li class="nav-item rounded-5 px-4"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+            <button class="btn btn-lg"><span class="navbar-toggler-icon" data-bs-target="#sidebar" data-bs-toggle="offcanvas"></span></button>
+        </div>
+
+        <!-- offcanvas -->
+        <div class="offcanvas offcanvas-end" id="sidebar">
+            <div class="offcanvas-header align-item-center">
+                <div class="offcanvas-header h2 brand">RAVIZZ</div>
+                <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                 <li class="sidebar-item"><a class="nav-link" href="#home">Home</a></li>
+                 <li class="sidebar-item"><a class="nav-link" href="#about">About</a></li>
+                 <li class="sidebar-item"><a class="nav-link" href="#services">Services</a></li>
+                 <li class="sidebar-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                 <li class="sidebar-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <br>
+                 <div class="h5">Social Links</div>
+                 <div class="links pt-2">
+                 <div class="row row-cols-2 g-4 justify-content-center " style="height: 65px;">
+                    <div class="col col-3">
+                        <div class="box shadow  rounded-circle text-center h2 shadow" style="height: 70px;"><img src="images/icon-facebook.svg" style="width:20px;margin-top: 20px;" alt=""></div>
+                    </div>
+                    <div class="col col-3">
+                        <div class="box shadow  rounded-circle text-center h2 shadow" style="height: 70px;"><img src="images/icon-instagram.svg" style="width:25px;margin-top: 20px;" alt=""></div>
+                    </div>
+                    <div class="col col-3">
+                        <div class="box shadow  rounded-circle text-center h2 shadow" style="height: 70px;"><img src="images/icon-twitter.svg" style="width:20px;margin-top: 25px;" alt=""></div>
+                    </div>
+                    <div class="col col-3">
+                        <div class="box shadow  rounded-circle text-center h2 shadow" style="height: 70px;"><img src="images/icon-facebook.svg" style="width:20px;margin-top: 20px;" alt=""></div>
+                    </div>
+                 </div>
+                </div>
+                <div class="row row-cols-2 mt-5 g-3" style="height: 100px; width: 100%;">
+                    <div class="col col-6">
+                        <div class="box shadow bg-secondary rounded-3" style="height: 125px;"></div>
+                    </div>
+                    <div class="col col-6">
+                        <div class="box shadow bg-secondary rounded-3" style="height: 125px;"></div>
+                    </div>
+                    <div class="col col-6">
+                        <div class="box shadow bg-secondary rounded-3" style="height: 125px;"></div>
+                    </div>
+                    <div class="col col-6">
+                        <div class="box shadow bg-secondary rounded-3" style="height: 125px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Up Button -->
+    <div class="fixed-bottom bg-danger p-3 rounded-circle shadow " id="up-btn">
+        <a href="#home"><img  src="https://cdn-icons-png.flaticon.com/512/271/271239.png" alt="" style="width: 35px;"></a>
+    </div>
+
+    <!-- HOME -->
+
+    <div class="container-fluid" id="home">
+        <div class="section">
+            <div class="row align-item-center row-cols-lg-2 row-cols-1 g-2 d-flex align-items-center">
+                <div class="col col-lg-6 col-md-4 ps-lg-5 ps-2">
+                    <div class="box home-box">
+                        <span class="text-success h4 pt-3">Established in 1861</span>
+                        <h1 class="pt-lg-4 pt-2 home-title">Get the seats at Massachusetts Institute of Technology (MIT)</h1>
+                        <p>MIT has played a significant role in the development of many areas of modern technology and science.Founded in response to the increasing industrialization of the United States.</p>
+                        <button class="btn p-lg-3 p-2  btn-lg mt-lg-5 rounded-5 btn-outline-success"><span class="h3">Register Now >></span></button>
+                    </div>
+                </div>
+                <div class="col col-lg-6 col-md-8">
+                    <div class="box home-box">
+                        <img class="home-img" src="images/illustration.svg" alt="" style="width:100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--About Section-->
+    <div class="container-lg " id="about">
+        <h2 class="text-center heading text-success">-- ABOUT --</h3><br><br>
+        <div class="row">
+             <div class="col">
+                <div class="box rounded-5 shadow-lg" style="height: 97vh;">
+                    <div class="row row-cols-lg-2 row-1 g-1">
+                        <div class="col col-lg-6 col-12">
+                            <div class="box shadow about "><img src="https://images.unsplash.com/photo-1658604520420-7569f9685b69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" class="rounded-4" alt="" style="width: 100%; height: 100%;"></div>
+                        </div>
+                        <div class="col col-lg-6 col-12">
+                            <div class="box about">
+                                <h3 class="mt-5 text-center text-success h2">RAVIZZ</h3>
+                                <p class="px-5 pt-2">Lorem ipsum, Saepe voluptatum inventore, magnam magni quo earum nisi explicabo vel vero maiores adipisci, recusandae, placeat quos debitis ea delectus ex aut praesentium?</p>
+                                <p class="px-5"> <strong>Email</strong> : abcd@gmail.com</p>
+                                <p class="px-5"> <strong>phone</strong> : 98989898</p>
+                                <p class="px-5"> <strong>website</strong> : www.xyz.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div><br><br><br><br><br>
+
+    <!--Services -->
+    <div class="container-lg" id="services" >
+        <h2 class="text-center heading text-success mb-5" >-- SERVICES --</h3>
+        <div class="row row-cols-md-3 row-cols-1">
+            <div class="col col-lg-4 col-12 rounded-5">
+                <div class="box  shadow-lg service-box">
+                    <div class="card " style="width: 100%; height: 760px;">
+                        <img src="https://images.unsplash.com/photo-1537888692311-8a7fb3e9f374?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" class="rounded-4"alt="">
+                        <div class="card-header h5 text-center">Best teaching</div>
+                        <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum reprehenderit quasi non iste officiis ut corporis doloremque quo exercitationem! Ipsum facilis animi neque cupiditate quam velit eaque nam libero repellendus.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-lg-4 col-12">
+                <div class="box  shadow-lg service-box">
+                    <div class="card " style="width: 100%; height: 760px;">
+                        <img src="https://images.unsplash.com/photo-1560131653-63257db002c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=415&q=80"class="rounded-4" alt="">
+                        <div class="card-header h5 text-center">Best teaching</div>
+                        <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum reprehenderit quasi non iste officiis ut corporis doloremque quo exercitationem! Ipsum facilis animi neque cupiditate quam velit eaque nam libero repellendus.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-lg-4 col-12">
+                <div class="box  shadow-lg service-box">
+                    <div class="card " style="width: 100%; height: 760px;">
+                        <img src="https://images.unsplash.com/photo-1560131653-63257db002c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=415&q=80"class="rounded-4" alt="">
+                        <div class="card-header h5 text-center">Best teaching</div>
+                        <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum reprehenderit quasi non iste officiis ut corporis doloremque quo exercitationem! Ipsum facilis animi neque cupiditate quam velit eaque nam libero repellendus.</div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col col-lg-4 col-12">
+                <div class="box  shadow-lg">
+                    <div class="card " style="width: 100%; height: 750px;">
+                        <img src="images/furniture-1.jpg" alt="">
+                        <div class="card-header h5 text-center">Best teaching</div>
+                        <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum reprehenderit quasi non iste officiis ut corporis doloremque quo exercitationem! Ipsum facilis animi neque cupiditate quam velit eaque nam libero repellendus.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-lg-4 col-12">
+                <div class="box  shadow-lg">
+                    <div class="card " style="width: 100%; height: 750px;">
+                        <img src="images/furniture-1.jpg" alt="">
+                        <div class="card-header h5 text-center">Best teaching</div>
+                        <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum reprehenderit quasi non iste officiis ut corporis doloremque quo exercitationem! Ipsum facilis animi neque cupiditate quam velit eaque nam libero repellendus.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-lg-4 col-12">
+                <div class="box  shadow-lg">
+                    <div class="card " style="width: 100%; height: 750px;">
+                        <img src="images/furniture-1.jpg" alt="">
+                        <div class="card-header h5 text-center">Best teaching</div>
+                        <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum reprehenderit quasi non iste officiis ut corporis doloremque quo exercitationem! Ipsum facilis animi neque cupiditate quam velit eaque nam libero repellendus.</div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div><br><br><br><br><br>
+
+
+     <!-- Gallery -->
+     <div class="container" id="gallery">
+        <h2 class="text-center heading text-success mb-5" >-- Gallery --</h2>
+         <div class="row row-cols-lg-2 row-cols-1 gy-2">
+             <div class="col col-lg-6 col-12">
+                <div class="row">
+                    <div class="col col-6">
+                        <div class="box shadow  rounded-4" style="height: 300px;"><img src="https://www.mit.edu/files/images/201807/15656704711_00457bd2c9_b_1.jpg" class="rounded-4" style="width:100%;height:300px" alt=""></div>
+                    </div>
+                    <div class="col col-6">
+                        <div class="box shadow  rounded-4" style="height: 300px;"><img src="https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/202110/Killian-Dome-Emily-Dahl_0.jpg?itok=CCEw2IUI" class="rounded-4" style="width:100%;height:300px" alt=""></div>  
+                    </div>
+                </div>
+             </div>
+             <div class="col col-lg-6 col-12">
+                <div class="box shadow  rounded-4" style="height: 300px;"><img src="https://assets.amazon.science/a8/54/7c5f06444330a846b68cce8792cb/mit-campus.jpg" class="rounded-4" style="width:100%;height:300px" alt=""></div>
+             </div>
+             <div class="col col-lg-6 col-12">
+                <div class="box shadow  rounded-4" style="height: 300px;"><img src="https://news.mit.edu/sites/default/files/images/201904/MIT-Accreditation.jpg" class="rounded-4" style="width:100%;height:300px" alt=""></div>
+             </div>
+             <div class="col col-lg-6 col-12">
+                <div class="row">
+                    <div class="col col-6">
+                        <div class="box shadow  rounded-4" style="height: 300px;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR14r0kgtrI5Dh5F1Xwu8G2s9Qgcx02eCX9uZ8FYDQ91GftyUkf8vPJXEYOCk16J_Qc9YLUl-K5PCw&usqp=CAU&ec=48665699" class="rounded-4" style="width:100%;height:300px" alt=""></div>
+                    </div>
+                    <div class="col col-6">
+                        <div class="box shadow  rounded-4" style="height: 300px;"><img src="https://www.univariety.com/blog/wp-content/uploads/2015/10/Why-MIT-is-the-Best-Technical-University-in-The-World-scaled.jpg" class="rounded-4" style="width:100%;height:300px" alt=""></div>  
+                    </div>
+                </div>
+             </div>
+             <div class="col col-lg-6 col-12">
+                <div class="row">
+                    <div class="col col-6">
+                        <div class="box shadow  rounded-4" style="height: 300px;"><img src="https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/202204/MIT-Indigenous-MIT-01-press_0.jpg?itok=r8DESODS" class="rounded-4" style="width:100%;height:300px" alt=""></div>
+                    </div>
+                    <div class="col col-6">
+                        <div class="box shadow  rounded-4" style="height: 300px;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9gaN7BCSKEI8mrwwFi_8H1nk_2qQ6GK_7HW2v3U3pMNanJHuHkuFP_7ypYy8-ILB4Eq7jhpQGsIY&usqp=CAU&ec=48665699" class="rounded-4" style="width:100%;height:300px" alt=""></div>  
+                    </div>
+                </div>
+             </div>
+             <div class="col col-lg-6 col-12">
+                <div class="box shadow  rounded-4" style="height: 300px;"><img src="https://www.mit.edu/files/images/201807/15656704711_00457bd2c9_b_1.jpg" class="rounded-4" style="width:100%;height:300px" alt=""></div>
+             </div>
+             <div class="col col-lg-6 col-12">
+                <div class="box shadow  rounded-4" style="height: 300px;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmS88AM9yI5GoahFua-aq8pB7rpyNdOIuVQVTMT-s-2-lvI5CJiA-Myp4HOsUMS09G5FMZ4vbumgU&usqp=CAU&ec=48665699" class="rounded-4" style="width:100%;height:300px" alt=""></div>
+             </div>
+             <div class="col col-lg-6 col-12">
+                <div class="row">
+                    <div class="col col-6">
+                        <div class="box shadow  rounded-4" style="height: 300px;"><img src="data:image/jpeg;base64,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" class="rounded-4" style="width:100%;height:300px" alt=""></div>  
+                    </div>
+                    <div class="col col-6 mb-5"> 
+                        <div class="box shadow  rounded-4" style="height: 300px;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5TlpUhCLtdMQ2qFzEawilZoMkEGxXz8nUY8WLZxAc-XCbCms7GW5Df7oCH9-6nFj07JU4ETvle2I&usqp=CAU&ec=48665699" class="rounded-4" style="width:100%;height:300px" alt=""></div> 
+                    </div>
+                </div>
+             </div>
+         </div>
+    </div>
+
+    <div class="container" id="contact">
+        <h2 class="text-center heading text-success mt-3" >-- Contact Me --</h3>
+            <div class="d-flex justify-content-center">
+            </div>
+            <form action="">
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Name</span>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Email</span>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Phone</span>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Address</span>
+                    <input type="textarea" class="form-control" >
+                </div>
+
+                <button type="submit" class="btn btn-outline-primary mt-3 r">Submit</button>
+             </form>
+    </div><br><br><br><br><br>
+
+    
+    <div class="container-fluid bg-dark d-flex justify-content-center align-items-center" style="height:100vh">
+        <div>
+            <h1 class="text-white text-center">Massachusetts Institute of Technology (MIT)</h1>
+            <p class="h5 text-danger text-center mt-5 ">NEXT LEVEL EDUCATION</p>
+            <br><br>
+            <div class="d-flex justify-content-center">
+                <a href="https://www.mit.edu/" class="btn btn-lg btn-danger ">Visit Official Page</a>
+            </div>
+        </div>
+   </div>
+</body>
+</html>

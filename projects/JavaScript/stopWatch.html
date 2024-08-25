@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body{
+            min-width: 320px;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        #heading,#headingName{
+            position: absolute;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            top: 0;
+            margin-top: 90px;
+            font-weight: 800;
+            color:rgb(0, 0, 0);;
+        }
+
+        #headingName{
+            margin-top: 70px;
+            font-size: 4rem;
+            letter-spacing: 10px;
+            color: rgb(250, 87, 87);
+            z-index: -1;
+            opacity: .5;
+        }
+
+        #container{
+            width: 80%;
+            max-width: 700px;
+            padding: 3rem 3rem 1rem;
+            border: 1px solid transparent;
+            text-align: center;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius:15px;
+        }
+
+        #counter{
+            display: flex;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 600;
+        }
+
+        #hour,#min,#sec{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 50px;
+        }
+
+        p{
+            margin: 1rem;
+            padding: 1rem 1.3rem;
+        }
+
+        #buttons{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        button,input{
+            padding: .7rem;
+            border: 0;
+            width: 40%;
+            margin-top: 2rem;
+            text-align: center;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        #start-reset{
+            background-color:rgb(4, 162, 4); /*rgb(253, 50, 50);*/
+        }
+
+        #pause-resume-btn{
+           background-color:rgb(1, 145, 202); /* rgb(7, 79, 234) */
+        }
+
+        .choice{
+            max-width: 700px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .choice button{
+            background-color: rgb(248, 110, 110);
+            width: 45%;
+        }
+
+        .choice input{
+            width: 45%;
+        }
+
+        @media screen and (max-width:900px) {
+            button,input{
+                width: 45%;
+            }
+
+            p{
+            font-size: 3rem;
+            margin: .5rem;
+            padding: .5rem;
+        }
+
+        .choice{
+            width: 60%;
+        }
+        }
+
+        @media screen and (max-width:500px) {
+
+            #container{
+            width: 90%;
+            max-width: 700px;
+            padding: 2rem 2rem 1rem;
+            }
+
+        #buttons{
+            display: block;
+        }
+
+        button,input{
+            width: 100%;
+            margin-top: .5rem;
+        }
+
+        p{
+            font-size: 3rem;
+            margin: .2rem;
+            margin-bottom:1.5rem ;
+            padding: .6rem;
+        }
+
+        .choice{
+            margin-top: 1rem;
+            width: 80%;
+        }
+
+        .choice button,.choice input{
+            width: 45%;
+        }
+    }
+
+    </style>
+</head>
+<body>
+    <h3 id="heading">STOP WATCH</h3>
+    <h3 id="headingName">RAVIZZ</h3>
+
+    <div id="container">
+            <div id="counter">
+                <p id="hour">00</p>
+                <p>:</p>
+                <p id="min">00</p>
+                <p>:</p>
+                <p id="sec">00</p>
+            </div>
+            <div id="buttons">
+                <button id="pause-resume-btn">PAUSE</button>
+                <button id="start-reset">START</button>
+            </div>
+    </div>
+
+    <div class="choice">
+        <button id="15min">15 Min</button>
+        <button id="30min">30 Min</button>
+        <button id="1hour">1 Hour</button>
+        <input id="input" type="number" placeholder="Minutes">
+     </div>
+
+    <script>
+        const playBtn = document.getElementById('start-reset')
+        const stopBtn = document.getElementById('pause-resume-btn')
+        const hour = document.getElementById('hour')
+        const min = document.getElementById('min')
+        const sec = document.getElementById('sec')
+        const min15 = document.getElementById('15min')
+        const min30 = document.getElementById('30min')
+        const hour1 = document.getElementById('1hour')
+        const input = document.getElementById('input')
+
+        let interval;
+        let SCount = 0
+        let MCount = 0
+        let HCount = 0
+        let inputVal = 0
+        let TotalSCount = 0
+        let countDirection = 0 // 0 = Forward and 1 = Backward
+
+        //LOGIC
+        const display = () =>{
+            if(countDirection == 0){
+                SCount++
+                if(SCount>=60){
+                  MCount++
+                  SCount = 0
+                }
+    
+                if(MCount>=60){
+                    HCount++
+                    MCount = 0
+                }
+            }
+
+            if(input.value>0){
+                countDirection = 1
+            }
+
+            if(countDirection == 1){
+                if(input.value>0){
+                    inputVal = input.value
+                    TotalSCount = inputVal*60
+                    input.value = 0
+                } else {
+                       TotalSCount--
+                       console.log(TotalSCount);
+                       MCount = Math.floor(Number(TotalSCount)/60)%60
+                       HCount = Math.floor(Number(TotalSCount/60)/60)
+                       SCount = Number(TotalSCount%60)%60
+                }
+                
+            }
+
+            if(SCount < 0 && MCount < 0 && HCount < 0 ){
+                SCount = 0
+                MCount = 0
+                HCount = 0
+                playBtn.style.backgroundColor = 'rgb(4, 162, 4)'
+                playBtn.textContent = 'START'
+                reset()
+            }
+
+            if(SCount<10){
+                sec.textContent = `0${SCount}` 
+            } else {
+                sec.innerText = SCount
+            }
+
+            if(MCount<10){
+                min.textContent = `0${MCount}` 
+            } else {
+                min.innerText = MCount
+            }
+
+            if(HCount<10){
+                hour.textContent = `0${HCount}` 
+            } else {
+                hour.innerText = HCount
+            }
+        }
+
+
+        const start = () => {
+          interval =  setInterval(display,1000)
+        }
+
+          const reset = () => {
+            SCount = 0
+            MCount = 0
+            HCount = 0
+            countDirection = 0
+            clearInterval(interval)
+            display()
+            sec.textContent = `00`
+            SCount = 0
+            
+        }
+
+        const pause = () => {
+            clearInterval(interval)
+        }
+
+        const resume = () => {
+            interval =  setInterval(display,1000)
+        }
+
+
+        
+
+        playBtn.addEventListener('click',(e)=>{
+
+            if(input.value > 0){
+               countDirection = 1
+               HCount = Math.floor(Number(input.value)/60)
+               MCount = Number(input.value%60)
+            }
+            
+
+          if(playBtn.textContent == 'START'){
+            playBtn.style.backgroundColor = 'rgb(253, 50, 50)'
+            playBtn.textContent = 'RESET'
+            start()
+          } else {
+            playBtn.style.backgroundColor = 'rgb(4, 162, 4)'
+            playBtn.textContent = 'START'
+            stopBtn.style.backgroundColor = 'rgb(1, 145, 202)'
+            stopBtn.textContent = 'PAUSE'
+            reset()
+          }
+        })
+
+        stopBtn.addEventListener('click',()=>{
+            if(stopBtn.textContent == 'PAUSE'){
+                if(SCount!=0 || MCount!=0 || SCount!=0){
+                    stopBtn.style.backgroundColor = 'rgb(7, 79, 234)'
+                    stopBtn.textContent = 'RESUME'
+                    pause()
+                } 
+            } else {
+              stopBtn.style.backgroundColor = 'rgb(1, 145, 202)'
+              stopBtn.textContent = 'PAUSE'
+              resume()
+            }
+        })
+
+        min15.addEventListener('click',()=>{
+            countDirection = 1
+            if(SCount==0 && MCount==0 && SCount==0){
+                MCount = 15
+                input.value = 15
+                display()
+                SCount = 0
+                sec.textContent = `0${SCount}` 
+            }
+        })
+
+        min30.addEventListener('click',()=>{
+            countDirection = 1
+            if(SCount==0 && MCount==0 && SCount==0){
+                MCount = 30
+                input.value = 30
+                display()
+                SCount = 0
+                sec.textContent = `0${SCount}` 
+            }
+        })
+
+            hour1.addEventListener('click',()=>{
+            countDirection = 1
+            if(SCount==0 && MCount==0 && SCount==0){
+                HCount = 1
+                input.value = 60
+                display()
+                SCount = 0
+                sec.textContent = `0${SCount}` 
+            }
+        })
+
+    </script>
+</body>
+</html>

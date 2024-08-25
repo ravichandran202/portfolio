@@ -1,0 +1,723 @@
+<!DOCTYPE html><!--26,-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <title>Resume</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: "poppins", sans-serif;
+            font-size: 16px;
+            color: rgb(15, 15, 15, .9);
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(15, 15, 15, .9);
+        }
+
+        .container {
+            padding: 1rem;
+            padding-bottom: 2rem;
+            margin: 0 auto;
+            width: 800px;
+            /* height: 109vh; */
+            border: 3.5px solid rgb(58, 180, 58);
+            /* border-bottom: none; */
+        }
+
+        .header {
+            line-height: 1;
+            width: 100%;
+            border-bottom: 3px solid rgb(58, 180, 58);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            position: relative;
+        }
+
+        .header .head-left h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: rgb(69, 69, 252);
+            letter-spacing: -1px;
+        }
+
+        .head-left h2 {
+            margin-top: -10px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: rgb(58, 180, 58);
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+
+        .head-left p {
+            width: 40%;
+            font-size: .7rem;
+            line-height: 1.2;
+            color: rgba(0, 0, 0);
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+
+
+
+        .header .photo img {
+            border: 3.5px solid rgb(58, 180, 58);
+            width: 9rem;
+            height: 9rem;
+            border-radius: 100px;
+            position: absolute;
+            left: 43%;
+            top: 3%
+        }
+
+        .head-right .links {
+            margin-top: -.5rem;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        .head-right .links a {
+            color: rgb(15, 15, 15, .9);
+            text-decoration: none;
+        }
+
+        .head-right p {
+            font-size: .7rem;
+            font-weight: 500;
+            color: black;
+        }
+
+        .head-right img {
+            width: 1.2rem;
+            height: 1.2rem;
+            margin-left: 5px;
+        }
+
+
+        /*BODY-CONTAINER*/
+        .body-container {
+            display: flex;
+        }
+
+        /*Body-Left*/
+        .body-left {
+            /* border: 2px solid; */
+            line-height: 0;
+            width: 50%;
+            padding-right: 5px;
+        }
+
+        .body-left .content:first-of-type {
+            margin-bottom: 5rem;
+        }
+
+        .body-left .content {
+            margin-bottom: 3rem;
+        }
+
+        .body-left .content h2 {
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .body-left .content h3 {
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .body-left .content .college-name {
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .body-left .content .green {
+            color: rgb(58, 180, 58);
+        }
+
+        .body-left .content p {
+            margin-top: 2px;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .body-left .content .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .body-left .content ul {
+            margin: 0;
+            margin-left: -1rem;
+            margin-top: -1rem;
+            list-style-type: disc;
+            list-style-image: green;
+        }
+
+        .body-left .content ul li {
+            margin-left: 0;
+            font-weight: 500;
+        }
+
+        .body-left #gap {
+            margin-top: 1rem;
+        }
+
+        /*Personal Projects*/
+        .body-left .content .projects {
+            margin-top: 1rem;
+            list-style-type: none;
+            margin-left: -2.5rem;
+        }
+
+
+        .body-left .content .projects li h4 {
+            line-height: 1rem;
+            font-size: .9rem;
+        }
+
+        .body-left .content .projects li p {
+            list-style-type: disc;
+            font-size: .8rem;
+            line-height: 1rem;
+            margin-top: -.8rem;
+        }
+
+
+        /*Right Contents*/
+        .body-right {
+            /* border: 2px solid; */
+            line-height: 0;
+            width: 50%;
+            padding-left: 5px;
+        }
+
+        .body-right .content .skills {
+            display: flex;
+            gap: .5rem;
+            flex-wrap: wrap;
+        }
+
+        .body-right .content .skills li {
+            list-style-type: none;
+            font-weight: 400;
+            color: #fff;
+            /* color: black; */
+            border: 1px solid rgb(69, 69, 252, .9);
+            padding: 1rem;
+            border-radius: 5px;
+            background-color: rgb(69, 69, 252, .9);
+            margin: 0;
+        }
+
+        /*Achivements*/
+        .gap {
+            margin-top: 4rem;
+        }
+
+        .body-right .content .achivements {
+            margin-left: -25px;
+            list-style-type: none;
+            line-height: 20px;
+        }
+
+        .body-right .content .achivements li:first-of-type {
+            margin-top: 2rem;
+        }
+
+        .body-right .content .achivements li>p {
+            margin-top: -5px;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .body-right .content .achivements li h4 {
+            line-height: 1rem;
+            font-size: .9rem;
+        }
+
+        .body-right .content .achivements li p {
+            font-size: .8rem;
+            line-height: 1rem;
+            margin-top: -.8rem;
+        }
+
+        /*Certificates*/
+        .body-right .content .certificates {
+            margin-left: -25px;
+            list-style-type: none;
+            line-height: 20px;
+        }
+
+        .body-right .content .certificates li:first-of-type {
+            margin-top: 2rem;
+        }
+
+        .body-right .content .certificates li h4 {
+            line-height: 1rem;
+            font-size: .9rem;
+        }
+
+        .body-right .content .certificates li p {
+            font-size: .8rem;
+            line-height: 1rem;
+            margin-top: -.8rem;
+        }
+
+        .body-right .content .certificates p {
+            color: rgb(58, 180, 58);
+            font-weight: bold;
+        }
+
+        .body-right .content .certificates span {
+            float: right;
+            color: rgb(15, 15, 15, .9);
+        }
+
+        footer p {
+            color: red;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        /*******/
+        /* .container{
+        height: 108vh;
+
+    }
+    .body-right .content .skills li{
+        border: 1px solid rgb(69, 69, 252,.9);
+        background-color: rgb(69, 69, 252,.9);
+        color: rgba(4, 4, 133, 0.9);
+    }
+    .body-left .content .interests li{
+        border:1px solid black;
+    } */
+
+
+        /*********** PAGE - 2 *************/
+        /*** Left Side ***/
+
+        .body-left .content .work-experience {
+            list-style-type: none;
+            padding: 0rem 1.3rem;
+        }
+
+        .body-left .content .work-experience .title {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 0;
+            margin-bottom: 0;
+        }
+
+        .body-left .content .work-experience .time {
+            font-size: 14px;
+            color: rgb(58, 180, 58);
+        }
+
+        .body-left .content .work-experience .time span {
+            float: right;
+            margin-right: 1rem;
+        }
+
+        .body-left .content .work-experience .description {
+            margin-top: 1rem;
+            font-weight: 400;
+        }
+
+        .body-left .content .work-experience strong {
+            display: block;
+            color: rgb(58, 180, 58);
+        }
+
+        .body-left .content .work-experience p {
+            line-height: 1rem;
+            margin-top: 1rem;
+            font-size: 13px;
+        }
+
+
+
+
+        /*** Right Side ***/
+        /*Languages*/
+        .body-right .content .languages {
+            margin-top: 1.5rem;
+            list-style-type: none;
+            margin-left: -2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .body-right .content .languages li h4 {
+            line-height: 1rem;
+            font-size: .9rem;
+            margin-top: -5px;
+        }
+
+        .body-right .content .languages li p {
+            list-style-type: disc;
+            font-size: .8rem;
+            line-height: 1rem;
+            margin-top: -.8rem;
+        }
+
+        /*Interests*/
+
+        .body-right .content .interests {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            line-height: 20px;
+            margin-left: -2.5rem;
+            list-style-type: none;
+        }
+
+        .body-right .content .interests li {
+            padding: 5px 10px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--header Content-->
+    <div class="container">
+        <div class="header">
+            <div class="head-left">
+                <h1>RAVICHANDRAN T S</h1>
+                <h2>developer</h2>
+                <p>A passionate coder with high Frontend and Backend Web Technology skills
+                    and fast learning capability increases my
+                    adaptiveness in any environment!!</p>
+            </div>
+            <div class="photo">
+                <img src="images\photo.JPG" alt="profile pic">
+            </div>
+            <div class="head-right">
+                <div class="links">
+                    <a href="mailto:ravichandrants202@gmail.com">
+                        <p>ravichandrants202@gmail.com</p>
+                    </a>
+                    <img src="images\gmail.png" alt="gmail">
+                </div>
+
+                <div class="links">
+                    <a href="tel:9113971166">
+                        <p>9113971166</p>
+                    </a>
+                    <img src="images\phone.png" alt="phone">
+                </div>
+
+                <div class="links">
+                    <a
+                        href="https://www.google.com/maps/place/Mysuru,+Karnataka/@12.3106368,76.5656489,12z/data=!3m1!4b1!4m5!3m4!1s0x3baf70381d572ef9:0x2b89ece8c0f8396d!8m2!3d12.2958104!4d76.6393805">
+                        <p>MYSORE, India</p>
+                    </a>
+                    <img src="images\location.png" alt="location">
+                </div>
+
+                <div class="links">
+                    <a href="http://ravizzz.000webhostapp.com/">
+                        <p>ravizzz.000webhostapp.com/</p>
+                    </a>
+                    <img src="images\website.png" alt="website">
+                </div>
+
+                <div class="links">
+                    <a href="https://www.linkedin.com/in/ravichandran-t-s-551080215/">
+                        <p>linkedin.com/in/ravichandran-t-s-551080215/</p>
+                    </a>
+                    <img src="images\linkedin.png" alt="linkedin">
+                </div>
+
+                <div class="links">
+                    <a href="https://github.com/ravichandran202">
+                        <p>github.com/ravichandran202</p>
+                    </a>
+                    <img src="images\github.png" alt="github">
+                </div>
+            </div>
+        </div>
+
+        <!--Body left Content-->
+        <div class="body-container">
+            <div class="body-left">
+                <div class="content">
+                    <h2>EDUCATION</h2>
+                    <h3>Engineering</h3>
+                    <h3 class="college-name">Maharaja Institute Of Technology,</h3>
+                    <h3 class="college-name">Thandavapura(VTU)</h3>
+                    <div class="flex">
+                        <p class="green">10/2020 - Present</p>
+                        <p class="green">Mysore</p>
+                    </div>
+                    <p class="green" id="gap">Bachelor's of Engineering</p>
+                    <ul class="flex">
+                        <div>
+                            <h4>
+                                <li>Computer Science &</li>
+                                <h4></h4>
+                                <li style="list-style-type: none;">Engineering.</li>
+                            </h4>
+                        </div>
+                        <div>
+                            <h4>
+                                <li>8.8 CGPA</li>
+                                <h4></h4>
+                                <li style="list-style-type: none;">(5 Semesters)</li>
+                            </h4>
+                        </div>
+                    </ul>
+                </div>
+
+                <div class="content">
+                    <h2>PERSONAL PROJECTS</h2>
+                    <ul class="projects">
+                        <li>
+                            <h4 class="title"><a href="http://ravizzz.000webhostapp.com/">Personal Portfolio (10/2022 -
+                                    11/2022)</a></h4>
+                            <p class="description">It is an static website developed using HTML5 and CSS Technologies
+                            </p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a
+                                    href="http://ravizzz.000webhostapp.com/projects/Resume%20Builder/intro/mask.html">Resume
+                                    Builder (11/2022 - 11/2022)</a></h4>
+                            <p class="description">The Resume Builder project is a web application created with HTML,
+                                CSS, and JavaScript. It allows users to easily create professional resumes and able to
+                                dowload PDF of generated resume.</p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a href="http://hackmittean.pythonanywhere.com/">Hackathon Registration
+                                    Management (02/2023 - 03/2023)</a></h4>
+                            <p class="description">It facilitates the registration process for hackathons by providing a
+                                user-friendly interface, allowing participants to sign up, submit required information,
+                                and manage their registration details efficiently.</p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a href="https://ravichandran2002.pythonanywhere.com/aitext">AI Chatbot
+                                    (03/2023 - 04/2023)</a></h4>
+                            <p class="description">It utilizes AI APIs to provide a chatbot-like conversational
+                                experience, allowing users to interact with an AI model along with Text translation and
+                                Image generation similar to ChatGPT, and delivering responses based on natural language
+                                processing and machine learning APIs.</p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a
+                                    href="https://github.com/ravichandran202/Django/tree/main/studybud">Chatting
+                                    Application (04/2023 - 05/2023)</a></h4>
+                            <p class="description">It utilizes Django REST APIs to create chat rooms where users can
+                                communicate in real-time, exchanging messages, files, and other media, while providing a
+                                user-friendly interface for a seamless chatting experience..</p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a href="https://github.com/ravichandran202/Django/tree/main/todoapp">TODO
+                                    Application (05/2023 - 06/2023)</a></h4>
+                            <p class="description">It utilize Django framework provided user authentication, email
+                                integration, filtering and
+                                sorting options.
+                                Implemented CRUD operations and user-friendly UI
+                                for better organization.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Body Right Content-->
+            <div class="body-right">
+                <div class="content">
+                    <h2>SKILLS</h2>
+                    <ul class="skills">
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Django4</li>
+                        <li>Python3</li>
+                        <li>Bootstrap5</li>
+                        <!-- <li>PostgrelSQL</li> -->
+                        <li>Version Control</li>
+                        <li>Basic Java</li>
+                    </ul>
+                </div>
+                <div class="content gap">
+                    <h2>ACHIVEMENTS</h2>
+                    <ul class="achivements">
+                        <li>
+                            <h4 class="title">LinkedIn Assessment Badges</h4>
+                            <p class="description">I have Passed 3 linkedin skill assessment test - HTML,CSS,Python.
+                                Scored top 5% around the world in CSS,top 15% in HTML.</p>
+                        </li>
+                        <li>
+                            <h4 class="title">HackerRank GoldenBadge</h4>
+                            <p class="description">I have solved over more than 50+ Problems in Python. </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content gap">
+                    <h2>CERTIFICATES</h2>
+                    <ul class="certificates">
+                        <li>
+                            <h4 class="title"><a
+                                    href="https://drive.google.com/file/d/1TeJtiaznuePEBgLc58Jz1cqYALT6YEX1/view?usp=drive_link">Full
+                                    Stack Web Intern</a><span class="right">- Full Stack (Django)</span></h4>
+                            <p class="description">Oasis Infobyte<span class="right">Jun 2023</span></p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a
+                                    href="https://drive.google.com/file/d/1WnFuWBFg6w6CJnGPrnaQXtoChC0muL3I/view?usp=drive_link">Full
+                                    Stack Web Intern</a><span class="right">- Full Stack (Django)</span></h4>
+                            <p class="description">Bharat Intern <span class="right">May 2023</span></p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a
+                                    href="https://www.udemy.com/certificate/UC-28200447-f244-4b5e-a13c-72f78afcb78a/">Django
+                                    the Webframework</a><span class="right">- Django</span></h4>
+                            <p class="description">Udemy Online Course <span class="right">Jun 2023</span></p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a
+                                    href="https://www.freecodecamp.org/certification/ravichandrants/responsive-web-design">Responsive
+                                    Web Designing</a><span class="right">- HTML5,CSS3</span></h4>
+                            <p class="description">FreeCodeCamp <span class="right">Jan 2023</span></p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a
+                                    href="https://www.freecodecamp.org/certification/ravichandrants/scientific-computing-with-python-v7">Scientific
+                                    Programming in Python</a><span class="right">Python3</span></h4>
+                            <p class="description">FreeCodeCamp <span class="right">Jul 2022</span></p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a href="https://www.hackerrank.com/certificates/bada57812f51">Python
+                                    (Basics)</a><span class="right">- Python3</span></h4>
+                            <p class="description">HackerRank<span class="right">Feb 2022</span></p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a href="https://www.hackerrank.com/certificates/26ace20ab63c">Java
+                                    (Basics)</a><span class="right">- Java</span></h4>
+                            <p class="description">HackerRank<span class="right">Aug 2022</span></p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a href="https://www.hackerrank.com/certificates/782ca51a6669">CSS
+                                    (Basics)</a><span class="right">- CSS</span></h4>
+                            <p class="description">HackerRank<span class="right">Dec 2022</span></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<body>
+    <div class="container">
+        <div class="body-container">
+            <div class="body-left">
+                <div class="content">
+                    <h2>WORK EXPERIENCE</h2>
+                    <br>
+                    <ul class="work-experience">
+                        <li>
+                            <h3><a href="https://drive.google.com/file/d/1WnFuWBFg6w6CJnGPrnaQXtoChC0muL3I/view">Full
+                                    Stack Developer Intern</a></h3>
+                            <h4 class="title">Bharat Intern</h4>
+                            <p class="time">10/04/2023 - 10/05/2023 <span>Virtual Internship</span></p>
+                            <!-- <strong>Project</strong> -->
+                            <p><span style="font-weight: 800;"><a
+                                        href="https://ravichandran2002.pythonanywhere.com/blog">The CMS (Content
+                                        Management System) project :</a></span> <br>
+                                It is a web application developed using HTML,
+                                CSS, JavaScript, Bootstrap, and Django. It enables users to efficiently manage and
+                                publish content on their websites, providing features like user authentication, content
+                                creation, editing, and organization in a user-friendly interface.</p>
+                        </li>
+                        <br>
+                        <li>
+                            <h3><a href="https://drive.google.com/file/d/1TeJtiaznuePEBgLc58Jz1cqYALT6YEX1/view?usp=drive_link">Full Stack Developer Intern</a></h3>
+                            <h4 class="title">Oasis Infobyte</h4>
+                            <p class="time">15/05/2023 - 15/06/2023 <span>Virtual Internship</span></p>
+                            <!-- <strong>Project</strong> -->
+                            <p><span style="font-weight: 800;"><a href="">The Magazine Management System project :</a></span> <br>
+                                Developed a Django-based Magazine Management system, inspired by VictoryMagazine.
+                                Enabled user to create, edit, and publish articles and track
+                                readership statistics.
+                                Utilized Django ORM for efficient database operations and responsive design for optimal
+                                user experience.</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="body-right">
+                <div class="content">
+                    <h2>LANGUAGES</h2>
+                    <ul class="languages">
+                        <li>
+                            <h4 class="title">ENGLISH</h4>
+                            <p class="description">Full Professional Proficiency</p>
+                        </li>
+                        <li>
+                            <h4 class="title">KANNADA</h4>
+                            <p class="description">Native or Bilingual Proficiency</p>
+                        </li>
+                        <li>
+                            <h4 class="title">HINDI</h4>
+                            <p class="description">Limited Working Proficiency</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="content">
+                    <h2>INTERESTS</h2>
+                    <ul class="interests">
+                        <li>Coding</li>
+                        <li>Music</li>
+                        <li>Movies</li>
+                        <li>Foodie</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><span>This Resume Build using HTML5 and CSS3</span></p>
+    </footer>
+
+    <script>
+        var containerEl = document.getElementsByClassName('container')
+        console.log(containerEl);
+
+        // if (window.blur()) {
+        //     containerEl[0].style.borderBottom = "3.5px solid rgb(58, 180, 58)"
+        //     containerEl[1].style.borderTop = "3.5px solid rgb(58, 180, 58)"
+        // } else {
+        //     containerEl[0].style.borderBottom = "none"
+        //     containerEl[1].style.borderTop = "none"
+        // }
+
+    </script>
+</body>
+
+<!--
+    line 213
+    line 28
+    line 658
+-->
+
+</html>

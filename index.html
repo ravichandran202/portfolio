@@ -1,13 +1,969 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>ravizz</title>
+
+    <style>
+        /*
+        color-body: #b6cbce
+        color-heading: #eef3db
+        color-base: #033f47              back
+        color-base2 : #022a30            front
+        color-brand : #e0f780            
+        color-brand2 : #deff58 
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #022a30;
+            font-size: 18px;
+            color: #b6cbce;
+            font-family: "poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .section {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            overflow: auto;
+        }
+
+        .container {
+            margin: 0 1%;
+        }
+
+        /*header*/
+        nav {
+            background-color: #011c20;
+            justify-content: center;
+        }
+
+        header {
+            display: inline;
+            position: sticky;
+            top: 0;
+        }
+
+        .header h2 {
+            font-size: 1.5rem;
+            margin-left: 1rem;
+            margin-bottom: -1.7em;
+        }
+
+        .header ul {
+            justify-content: center;
+            list-style: none;
+            display: flex;
+            padding: .5em;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: #b6cbce;
+        }
+
+        .header ul li {
+            font-size: 1rem;
+            margin-left: 3em;
+            font-weight: 500;
+        }
+
+        .header ul li:hover {
+            border-bottom: 4px solid #e0f780;
+            margin-bottom: -4rem;
+        }
+
+        /*HOME section*/
+        .container-home {
+            margin-left: 2%;
+            margin-right: 0;
+        }
+
+        .home {
+            background-color: #022a30;
+            background-image: url("images/profile.png");
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-size: 29%;
+            padding-left: 3rem;
+            padding-bottom: 5%;
+        }
+
+        .home h1 {
+            margin-top: 5rem;
+            color: #deff58;
+            font-weight: 500;
+            font-size: 4em;
+        }
+
+        .home p {
+            font-size: 1.2rem;
+            margin-right: 40%;
+            margin-bottom: 3rem;
+        }
+
+        .home .btn {
+            border: 2px solid #e0f780;
+            background-color: #deff58;
+            display: inline-block;
+            padding: 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #022a30;
+            width: 20%;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .home .btn:hover {
+            background-color: #033f47;
+            color: rgb(239, 240, 234);
+            transition: 350ms;
+        }
+
+        .home h1 img {
+            width: 4rem;
+            display: inline-block;
+            margin-left: 2rem;
+            padding-top: 3rem;
+        }
+
+        a img {
+            width: 3rem;
+            margin-top: 3rem;
+            margin-left: 1rem;
+            display: inline-block;
+        }
+
+
+        /*ABOUT SECTION*/
+
+        .about>h3 {
+            margin-top: 2rem;
+            font-size: 2rem;
+            font-weight: 500;
+            text-align: center;
+            color: #deff58;
+            margin-bottom: 3rem;
+        }
+
+        .about h2 {
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #b6cbce;
+        }
+
+        .education {
+            margin: 0;
+        }
+
+        .about h4 {
+            margin-top: .5rem;
+            font-weight: 400;
+            color: #deff58;
+        }
+
+        .about {
+            font-size: 1rem;
+            font-weight: 400;
+            background-color: #022a30;
+        }
+
+        .section {
+            background-color: #033f47;
+            width: 90%;
+            border-radius: 10px;
+            padding: .5em;
+            margin-bottom: 1rem;
+        }
+
+        .section:hover {
+            border-left: 5px solid #deff58;
+            border-bottom: 5px solid #deff58;
+            margin-bottom: .8rem;
+        }
+
+        .divider {
+            margin-bottom: 4rem;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .about .del {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        /*Work Section*/
+        .works {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .works .section {
+            padding: 0;
+        }
+
+        .works h2 {
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #b6cbce;
+        }
+
+        .works>h3 {
+            margin-top: 2rem;
+            font-size: 2rem;
+            font-weight: 500;
+            text-align: center;
+            color: #deff58;
+            margin-bottom: 3rem;
+        }
+
+        /* .works .cirtificate-section img{
+            margin: 5px;
+            width:22%;
+            float: left;
+            border-radius: 5px;
+        }
+
+        .works .project-section img{
+            margin: 5px;
+            width:19%;
+            float: left;
+            border-radius: 5px;
+        } */
+
+
+        .works .section {
+            height: 18%;
+        }
+
+        .works .section:hover {
+            border: none;
+            box-shadow: 0 4px 8px 0 rgb(224, 247, 128, 0.2), 0 6px 20px 0 rgb(224, 247, 128, 0.19);
+            margin-bottom: 1rem;
+        }
+
+        .works img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .works .img {
+            margin: 1%;
+            width: 20%;
+            float: left;
+        }
+
+        .works .tech {
+            font-size: 1.0rem;
+            font-weight: 600;
+        }
+
+        .works h4 {
+            font-weight: 400;
+            color: #deff58;
+        }
+
+        .works .del {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .works .verify {
+            color: #022a30;
+            margin-bottom: -1rem;
+            border-radius: 25px;
+            display: inline;
+            padding: 2px;
+            background-color: #deff58;
+        }
+
+        .works .verify:hover {
+            color: #b6cbce;
+            background-color: #033f47;
+            border: 2px solid #deff58;
+        }
+
+        .works a {
+            font-size: 60%;
+            text-decoration: none;
+            font-weight: 500;
+            color: #022a30;
+        }
+
+
+        /*CONTACT SECTION*/
+        .contact {
+            margin-top: 10rem;
+        }
+
+        .contact>h3 {
+            margin-top: 2rem;
+            font-size: 2rem;
+            font-weight: 500;
+            text-align: center;
+            color: #deff58;
+            margin-bottom: 2px;
+        }
+
+        .contact>p {
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+
+        .contact .inline p {
+            display: inline;
+            margin: auto 0;
+        }
+
+        .contact .contact-section {
+            background-color: #033f47;
+            border-radius: 10px;
+            margin: 0 auto;
+            width: 95%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            overflow: auto;
+            margin: 0 auto;
+            padding: 1%;
+        }
+
+        .contact-section:hover {
+            box-shadow: 0 4px 8px 0 rgb(224, 247, 128, 0.2), 0 6px 20px 0 rgb(224, 247, 128, 0.19);
+        }
+
+
+        .contact-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .contact-section h2 {
+            font-size: 300%;
+            font-weight: 500;
+        }
+
+        .contact-section .contact-h3 {
+            color: #e0f780;
+            font-weight: 500;
+        }
+
+        .contact-section img {
+            width: 7%;
+            margin: 1% 0 1.5%;
+        }
+
+        .contact-section .btn a {
+            text-decoration: none;
+        }
+
+        .contact-section .btn {
+            border: 2px solid #e0f780;
+            background-color: #deff58;
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #022a30;
+            width: 30%;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .contact-section .btn:hover {
+            background-color: #033f47;
+            color: #b6cbce;
+        }
+
+        .form-section {
+            border-radius: 10px;
+            width: 95%;
+            margin-left: 1rem;
+            overflow: auto;
+            padding: 1%;
+            padding-top: 0;
+        }
+
+        .form-section h3 {
+            font-size: 200%;
+            font-weight: 500;
+        }
+
+        .form-section label {
+            display: block;
+            font-weight: 500;
+            margin-top: 2%;
+        }
+
+        .form-section input,
+        .form-section textarea {
+            border-radius: 5px;
+            display: block;
+            background-color: #033f47;
+            width: 80%;
+            height: 3rem;
+            border: none;
+            padding: 1%;
+            color: #b6cbce;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+
+        .form-section input:hover,
+        .form-section textarea:hover {
+            box-shadow: 0 4px 8px 0 rgb(224, 247, 128, 0.2), 0 6px 20px 0 rgb(224, 247, 128, 0.19);
+        }
+
+        .form-section .btn {
+            margin-top: 2%;
+            border: 2px solid #e0f780;
+            background-color: #deff58;
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #022a30;
+            width: 80%;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .form-section .btn:hover {
+            background-color: #033f47;
+            color: #b6cbce;
+        }
+
+        /*Footer Section*/
+
+        .footer {
+            align-items: center;
+            background: #011c20;
+            color: #b6cbce;
+        }
+
+        footer .footer>p {
+            text-align: center;
+        }
+
+        .project-section .project-btn {
+            border: 2px solid rgb(222, 255, 88, 0.5);
+            height: 45px;
+            text-align: center;
+        }
+
+        .project-section .project-btn a {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #deff58;
+            text-align: center;
+            display: block;
+            margin-top: 8px;
+        }
+
+        /* CSS FOR MOBILE VERSION */
+        @media screen and (max-width:600px) {
+            .header ul {
+                float: right;
+            }
+
+            .header ul li {
+                font-size: 0.8rem;
+                margin-left: 1rem;
+            }
+
+            .home h1 {
+                font-size: 2.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .container {
+                margin-left: 5%;
+            }
+
+            .container .about>h3 {
+                margin-bottom: 1rem;
+            }
+
+            .container .works>h3 {
+                margin-bottom: 1rem;
+            }
+
+
+            .divider {
+                display: block;
+            }
+
+            .section {
+                width: 95%;
+            }
+
+            .home {
+                padding-left: 2%;
+            }
+
+            .project-content {
+                display: block;
+            }
+
+            .project-section img {
+                width: 150%;
+            }
+
+            .project-section .section>h3 {
+                font-size: 1rem;
+                margin-left: 35%;
+            }
+
+            .project-section .section>h4 {
+                font-size: .9rem;
+                margin-left: 35%;
+            }
+
+            .project-section .section>p {
+                font-size: .7rem;
+                margin-left: 35%;
+            }
+
+            .project-section .section .del {
+                margin-left: 0px;
+                display: block;
+                font-size: .8rem;
+                margin-left: 35%;
+            }
+
+            .project-section .section .tech {
+                font-size: .9rem;
+            }
+
+
+            .cirtificate-section .section>h3 {
+                font-size: 1rem;
+                margin-left: 30%;
+            }
+
+            .cirtificate-section .section>h4 {
+                font-size: .9rem;
+                margin-left: 30%;
+            }
+
+            .cirtificate-section .section>p {
+                font-size: .8rem;
+                margin-left: 30%;
+            }
+
+            .cirtificate-section .section .del {
+                margin-left: 0px;
+                display: block;
+                font-size: .8rem;
+                margin-left: 30%;
+            }
+
+            .cirtificate-section .section .tech {
+                font-size: .9rem;
+            }
+
+            .works .cirtificate-section>h2 {
+                margin-top: 5rem;
+            }
+
+            .home {
+                background-size: 50%;
+            }
+
+            .home h1 img {
+                width: 2rem;
+                margin-left: 1rem;
+            }
+
+            .home p {
+                font-size: 1rem;
+                margin-right: 10%;
+            }
+
+            .home .btn {
+                width: 50%;
+                height: 3.5rem;
+                font-size: 1rem;
+                margin-top: 1rem;
+            }
+
+            .home a img {
+                width: 2.5rem;
+                margin-left: .5rem;
+                margin-bottom: 2rem;
+            }
+
+            .works .section {
+                padding: .5rem;
+            }
+
+            .container .contact-section {
+                overflow: hidden;
+                margin-left: 0;
+                padding: 5%;
+                margin: 0rem;
+                padding-right: 0;
+                margin-bottom: 5rem;
+            }
+
+            .container .contact-section .img {
+                width: 175%;
+            }
+
+
+
+            .container .contact-section h2 {
+                font-size: 2rem;
+            }
+
+            .contact-section h3 {
+                font-size: 1rem;
+            }
+
+            .about .skills>h2 {
+                margin-top: 5rem;
+            }
+
+            .contact-section .btn {
+                border: 2px solid #e0f780;
+                background-color: #deff58;
+                padding: 0.5rem 1.5rem;
+                border-radius: 10px;
+                color: #022a30;
+                width: 95%;
+                text-align: center;
+                font-weight: 700;
+            }
+
+
+
+
+            .form-section {
+                padding: 0;
+                margin-left: 0rem;
+            }
+
+            .form-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .form-section input,
+            .form-section textarea {
+                color: #b6cbce;
+                width: 100%;
+                font-family: "poppins", sans-serif;
+            }
+
+            .form-section .btn {
+                width: 100%;
+            }
+
+            .project-section .project-btn a {
+                margin-top: 0px;
+            }
+
+            .contact {
+                margin-top: 0px;
+            }
+
+            .contact-section .btn {
+                border: 2px solid #e0f780;
+                background-color: #deff58;
+                padding: 0.5rem 1.5rem;
+                border-radius: 10px;
+                color: #022a30;
+                width: 95%;
+                text-align: center;
+                font-weight: 700;
+            }
+
+            .footer p {
+                font-size: .7rem;
+            }
+
+        }
+    </style>
 </head>
-<body>
-    <h1>Heading</h1>
-    <p>Ravichandran T S</p>
-    <a href="#">Link</a>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+    <header>
+        <nav>
+            <div class="header">
+                <a href="#">
+                    <h2>RAVIZZ</h2>
+                </a>
+                <ul>
+                    <a href="#">
+                        <li>HOME</li>
+                    </a>
+                    <a href="#about">
+                        <li>ABOUT</li>
+                    </a>
+                    <a href="#works">
+                        <li>WORKS</li>
+                    </a>
+                    <a href="#contact">
+                        <li>CONTACT</li>
+                    </a>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container container-home">
+        <div class="home">
+            <h1>HELLO<img src="images/hello2.png" alt="Hello icon"><br>I'M <span>RAVICHANDRAN</span></h1>
+            <p>Backend Intern at <strong>ALLEN DIGITAL</strong>, building EdTech Platform. <br> Currently working in
+                <strong>URM</strong> team as a where I focus on <strong>Golang, SQL, GIT</strong> to optimizing and
+                scaling backend solutions to enhance user experience and system efficiency.
+            </p>
+            <a href="resume\index.html" class="btn">Open CV</a><br>
+            <a href="https://github.com/ravichandran202"><img src="images/linkedin.png" alt="linkedin icon"></a>
+            <a href="https://www.instagram.com/ravi__the__crazy/"><img src="images/instagram.png"
+                    alt="instagram icon"></a>
+            <a href="https://www.linkedin.com/in/ravichandran-t-s-551080215/"><img src="images/github.png"
+                    alt="github icon"></a>
+        </div>
+    </div>
+
+    <!--ABOUT-->
+    <div class="container">
+        <div class="about" id="about">
+            <h3>ABOUT</h3>
+            <div class="divider">
+                <div class="education">
+                    <h2>EDUCATION</h2>
+                    <div class="section">
+                        <h3>Computer Science and Enggineering</h3>
+                        <p>Grade : <strong>9.0 CGPA </strong></p>
+                        <h4>Maharaja Institue of Technology (2020-2024)</h4>
+                        <p>As a CSE student, I completed my undergraduate degree at MITT with a 9 CGPA</p>
+                    </div>
+
+                    <div class="section">
+                        <h3>PUC(PCMB)</h3>
+                        <p>Grade : <strong>79.81%</strong></p>
+                        <h4>SBRR Mahajana PU College (2018-2020)</h4>
+                        <p>As a Science Student (PCMB) I had completed my Pre-University at SBRR Mahajana PU
+                            College,Mysore by Scoring 479/600 (79.83)</p>
+                    </div>
+
+                    <div class="section">
+                        <h3>SSLC</h3>
+                        <p>Grade : <strong>88.68%</strong></p>
+                        <h4>ST. Gregorious Convent School (2016-2018)</h4>
+                        <p>I had completed my SSLC (10th) at ST. Gregorious convent school, Sabbanahalli by Scoring
+                            551/625 (88.68)</p>
+                    </div>
+                </div>
+
+
+                <div class="skills">
+                    <h2>SKILLS</h2>
+                    <div class="section">
+                        <h3>PROGRAMMING LANGUAGES</h3>
+                        <h4>Python3, JavaScript, Java, Golang, TypeScript</h4>
+                        <p><strong>Intermidiate Level, Datastructures, Algorithms</strong></p>
+                        <p>I solved so many python,Datastructures,Algorithm Problems using HackerRank and LeetCode
+                            Platform. </p>
+                    </div>
+
+                    <div class="section">
+                        <h3>FRONTEND</h3>
+                        <h4>HTML5, CSS3, JS5</h4>
+                        <p>Frameworks : <strong>ReactJS, Bootstrap</strong></p>
+                        <p>I am very well aware of Frontend Technologies, And also i had developed so many projects
+                            releted to Frontend Framewors.</p>
+                    </div>
+
+                    <div class="section">
+                        <h3>BACKEND</h3>
+                        <h4>MYSQL, Mongo DB, Django, Node JS, REST APIs, GRPC</h4>
+                        <p>Frameworks : <strong>Django, Kratos, Echo</strong></p>
+                        <p>I am very well aware of Backend Technologies, And also i had developed so many projects
+                            releted to Backend Framewors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--WORKS SECTIONS-->
+    <div class="container">
+        <div class="works" id="works">
+            <h3>WORKS</h3>
+            <div class="divider">
+                <div class="project-section">
+                    <h2>PROJECTS</h2>
+                    <div class="section">
+                        <div class="img"><img src="images\django.jpg" alt="icon"></div>
+                        <h3>Website to Android App Converter</h3>
+                        <h4>Technologies : <span class="tech">Django, SQL, Python, HTML, CSS3, JS, Bootsrap</span></h4>
+                        <p>This project was mainly focused on Backend Technologies, Ability to convert website link into
+                            android apps</p>
+                    </div>
+
+                    <div class="section">
+                        <div class="img"><img src="images\django.jpg" alt="icon"></div>
+                        <h3>AI Text App</h3>
+                        <h4>Technologies : <span class="tech">Django, SQL, Python, HTML, CSS3, JS, Bootsrap</span></h4>
+                        <p>This project was mainly focused on Backend Technologies, ChatGPT clone with image generator
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <div class="img"><img src="images\django.jpg" alt="icon"></div>
+                        <h3>Hackathon Registration Management System</h3>
+                        <h4>Technologies : <span class="tech">Django, SQL, Python, HTML, CSS3, JS, Bootsrap</span></h4>
+                        <p>This project was mainly focused on Backend Technologies, Ability to manage hackathon
+                            registration with payment gateway intergrations</p>
+                    </div>
+
+                    <!-- <div class="section">
+                        <div class="img"><img src="images\django.jpg" alt="icon"></div>
+                        <h3>Content Management System</h3>
+                        <h4>Technologies : <span class="tech">Django, SQL, Python, HTML, CSS3, JS, Bootsrap</span></h4>
+                        <p>This project was mainly focused on Backend Technologies, Ability to manage blogs</p>
+                    </div> -->
+
+                    <div class="section">
+                        <div class="img"><img src="images\django.jpg" alt="icon"></div>
+                        <h3>School Management App</h3>
+                        <h4>Technologies : <span class="tech">Django, SQL, Python, HTML, CSS3, JS, Bootsrap</span></h4>
+                        <p>This project was mainly focused on Backend Technologies, Ability to manage teachers, students
+                            data</p>
+                    </div>
+
+                    <div class="section project-btn">
+                        <a href="project-page.html">Open Projects</a>
+                    </div>
+                </div>
+
+
+                <div class="cirtificate-section">
+                    <h2>CIRTIFICATES</h2>
+                    <div class="section">
+                        <div class="img"><img src="images\django.jpg" alt="icon"></div>
+                        <h3>DJANGO WEB FRAMEWORK</h3>
+                        <h4>FrameWork : <span class="tech">Django</span></h4>
+                        <p>Organization : Udemy</p>
+                        <a class="verify"
+                            href="https://www.udemy.com/certificate/UC-28200447-f244-4b5e-a13c-72f78afcb78a/">Click To
+                            Verify</a>
+                    </div>
+                    <div class="section">
+                        <div class="img"><img src="images\python.jpg" alt="icon"></div>
+                        <h3>SCIENTIFIC COMPUTING</h3>
+                        <h4>Language : <span class="tech">Python3</span></h4>
+                        <p>Organization : FreeCodeCamp</p>
+                        <a class="verify"
+                            href="https://freecodecamp.org/certification/ravichandrants/scientific-computing-with-python-v7"
+                            target="_blank">Click To Verify</a>
+                    </div>
+
+                    <div class="section">
+                        <div class="img"><img src="images\java.png" alt="icon"></div>
+                        <h3>JAVA PROGRAMMING</h3>
+                        <h4>Language : <span class="tech">Java</span></h4>
+                        <p>Organization : HackerRank</p>
+                        <a class="verify" href="https://www.hackerrank.com/certificates/26ace20ab63c"
+                            target="_blank">Click To Verify</a>
+                    </div>
+
+                    <div class="section">
+                        <div class="img"><img src="images\python.jpg" alt="icon"></div>
+                        <h3>PYTHON PROGRAMMING</h3>
+                        <h4>Language : <span class="tech">Python3</span></h4>
+                        <p>Organization : HackerRank</p>
+                        <a class="verify" href="https://www.hackerrank.com/certificates/bada57812f51"
+                            target="_blank">Click To Verify</a>
+                    </div>
+
+                    <div class="section">
+                        <div class="img"><img src="images\html.png" alt="icon"></div>
+                        <h3>RESPONSIVE WEB DESIGN<span class="del"></span></h3>
+                        <h4>Language : <span class="tech">HTML5, CSS3</span></h4>
+                        <p>Organization : FreeCodeCamp</p>
+                        <a class="verify"
+                            href="https://www.freecodecamp.org/certification/ravichandrants/responsive-web-design">Click
+                            To Verify</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="contact" id="contact">
+            <h3>CONTACT</h3>
+            <p>Get In Touch</p>
+            <div class="divider">
+                <div class="contact-section">
+                    <h2>Contact Me</h2>
+                    <h3>Name : <span class="contact-h3">Ravichandran T S</span></h3>
+                    <h3>Email : <span class="contact-h3">ravichandrants202@gmail.com</span></h3>
+                    <h3>Mobile : <span class="contact-h3">9113971166</span></h3>
+                    <div class="img">
+                        <a href="https://www.linkedin.com/in/ravichandran-t-s-551080215/" target="_blank"><img
+                                src="images/linkedin.png" alt="linkedin icon"></a>
+                        <a href="https://www.instagram.com/ravi__the__crazy/" target="_blank"><img
+                                src="images/instagram.png" alt="instagram icon"></a>
+                        <a href="https://github.com/ravichandran202" target="_blank"><img src="images/github.png"
+                                alt="github icon"></a>
+                        <!-- <a href="mailto:ravichandrants202@gmail.com" target="_blank"><img src="images/.png" alt="googleplus icon"></a> -->
+                    </div>
+                    <a class="btn" href="mailto:ravichandrants202@gmail.com">Hire Me</a>
+                </div>
+
+
+                <div class="form-section">
+                    <h3>Fill The Form</h3>
+                    <form action="#" method="post" id="form">
+                        <div><label for="name">Name :<input type="text" name="name" id="name"
+                                    placeholder="Enter Your Name" required></label></div>
+                        <div><label for="email">Email :<input type="email" name="email" id="email"
+                                    placeholder="Enter Your Email" required></label></div>
+                        <div><label for="comment">Feedback :<textarea placeholder="Please Comment here..."></textarea name="comment" id="comment"></label></div>
+                    <div><input class="btn" type="submit" value="Submit" form="form"></div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--FOOTER-->
+    <footer>
+        <div class="footer">
+            <p>Copyrights © 2022 Ravichandran, All Rights Reserved
+            </p>
+        </div>
+    </footer>
+
+    <!-- Alert Message
+    <script type="text/javascript">
+        alert("This web is created only for educational purpose, Open this web using your computer for better experience or use Desktop version in your mobile");
+    </script> -->
 </body>
 </html>
